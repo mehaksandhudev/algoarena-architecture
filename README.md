@@ -7,6 +7,7 @@
 
 [![Creator: Mehak Sandhu](https://img.shields.io/badge/Creator-Mehak%20Sandhu%20(@mehaksandhudev)-gold?style=for-the-badge&logo=github&logoColor=black)](https://github.com/mehaksandhudev)
 [![Platform: MetaTrader 5](https://img.shields.io/badge/Platform-MetaTrader%205%20(64--bit)-0078D4?style=for-the-badge&logo=windows&logoColor=white)](https://www.metatrader5.com/)
+[![C++ / C# .NET](https://img.shields.io/badge/C%2B%2B%20%7C%20C%23%20.NET-Low--Latency%20Core-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)](https://github.com/mehaksandhudev/algoarena-architecture)
 [![Telegram Bot](https://img.shields.io/badge/Telegram-Mobile%20Commander-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/algoarena711bot)
 [![Prop--Firm Certified](https://img.shields.io/badge/Prop--Firm-Funding%20Pips%20%7C%20FTMO%20Ready-22c55e?style=for-the-badge&logo=shield&logoColor=white)](PROP_FIRM_COMPLIANCE_AUDIT.md)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%20%7C%203.11-FFD43B?style=for-the-badge&logo=python&logoColor=black)](https://python.org)
@@ -103,6 +104,15 @@ graph TD
         Q --> R["Cloudflare Encrypted HTTPS Tunnel"]
     end
 ```
+
+---
+
+## ⚡ Low-Latency C++ & C# (.NET) High-Performance Core
+
+To achieve institutional sub-millisecond execution and handle heavy tick-level microstructure mathematics without garbage collection jitter or thread starvation:
+- **C++ (C++17 / C++20) Calculation Modules:** High-performance native mathematical routines and dynamic-link libraries (`.dll`) compiled with SIMD/AVX2 optimizations for in-memory Fixed Range Volume Profile (FRVP) 40-bin calculations, order-flow tick volume delta, and memory-mapped named-pipe IPC connecting directly into MetaTrader 5.
+- **C# (.NET 8.0) High-Throughput Interop:** Robust C# bridges managing async socket event pipelines, Fix protocol messaging, cross-broker adapters (cTrader / NinjaTrader / MT5 interop), and high-reliability multi-threaded order state machines.
+- **MQL5 / C++ Runtime Integration:** Direct native API integration with MetaTrader 5's execution runtime ensuring zero-lag market orders, hedging ticket preservation (`request["position"]`), and real-time tick streaming.
 
 ---
 
@@ -319,14 +329,17 @@ To keep this README clean and fast to read, detailed engineering manuals are mod
 
 | Component | Technology | Purpose |
 | :--- | :--- | :--- |
-| **Core Engine** | Python 3.10 / 3.11 (64-bit) | Asynchronous event-driven trading execution and state management |
+| **Low-Latency Math & Calculations** | C++ (C++17 / C++20) | High-throughput FRVP volume profile, tick delta calculations, and native MT5 DLL bridges |
+| **Trading System Interop** | C# (.NET 8.0) | High-performance socket event pipelines, broker API adapters, and multi-threaded order state machines |
+| **Terminal Integration** | MQL5 & C++ Runtime | Native MetaTrader 5 Expert Advisor execution, named-pipe IPC, and sub-millisecond memory-mapped telemetry |
+| **Orchestration & ML Engine** | Python 3.10 / 3.11 (64-bit) | Asynchronous event-driven trading execution, strategy dispatch, and state management |
 | **Broker Interface** | MetaTrader 5 IPC API | High-speed named-pipe connection to MT5 terminal for quotes and orders |
 | **Machine Learning** | LightGBM, Scikit-Learn | Microstructure classification models trained on 25,000 M1 bars |
 | **Local Database** | SQLite 3 (WAL Mode) | High-speed zero-latency local persistent storage for trades, deals, AI debates |
 | **Cloud Database** | Supabase Cloud PostgreSQL | Bi-directional cloud sync bridge between Cloud VPS and Local Workstation |
 | **Web Dashboard** | FastAPI, Uvicorn, TradingView Lightweight Charts 4.1.1 | Institutional dark-theme telemetry dashboard on Port 8090 |
 | **Public Tunnel** | Cloudflare Quick Tunnel (`cloudflared`) | Encrypted, zero-config remote HTTPS mobile access |
-| **Mobile Control** | Telegram Bot API | Bi-directional remote mobile commander and push alert dispatcher |
+| **Mobile Control** | Telegram Bot API & Telethon MTProto | Bi-directional remote mobile commander, signal copier, and push alert dispatcher |
 | **Macroeconomic Feed**| FairEconomy / ForexFactory API | Zero-cost live economic calendar feed for pre-news quarantine |
 
 ---
