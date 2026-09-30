@@ -52,6 +52,7 @@ Retail trading suffers from a 95% failure rate due to emotional revenge trading,
 - **Asymmetric Risk-to-Reward Ratios (1:3 to 1:5):** Mathematically guarantees that wins dominate losses through currency-pair tick value calibration and micro stop-losses.
 - **Broker-Level Concurrency & Anti-Duplicate Lock:** Directly checks live broker positions to guarantee strictly 1 position per symbol, eliminating duplicate execution.
 - **Hedging Position-Close Routing:** Implements full MT5 hedging compatibility via explicit position ticket attribution (`request["position"]`), preventing MT5 retcode 10019.
+- **Order Flow Volume Delta & Institutional Absorption:** Computes real-time tick volume delta ($\text{Volume}_{\text{Buy}} - \text{Volume}_{\text{Sell}}$) and cumulative volume delta (CVD) divergence. Detects smart money absorbing aggressive retail market orders at liquidity sweeps (Judas traps) before authorizing entries.
 - **Complete Prop-Firm Compliance:** Engineered specifically for strict evaluation challenges (**Funding Pips**, **FTMO**, **The 5%ers**), featuring a $125 daily loss circuit breaker, single-trade consistency caps, Friday weekend force-close, and pre-news quarantine.
 
 ---
